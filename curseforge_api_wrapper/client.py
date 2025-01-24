@@ -147,7 +147,7 @@ class Client:
         res = request(
             url,
             headers=self.headers,
-            json={
+            params={
                 "gameVersion": gameVersion,
                 "modLoaderType": (
                     modLoaderType
