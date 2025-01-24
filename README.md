@@ -2,7 +2,7 @@
 
 ![curseforge-api-wrapper](https://socialify.git.ci/mcmod-info-mirror/curseforge-api-wrapper/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Overlapping+Hexagons&stargazers=1&theme=Dark)
 
-`curseforge_api_wrapper` 是一个用于与 Curseforge API 交互的 Python 包。它提供了方便的客户端类和方法来访问 Curseforge 的各种 API 端点。\
+`curseforge_api_wrapper` 是一个用于与 Curseforge API 交互的 Python 包。它提供了方便的客户端类和方法来访问 Curseforge 的各种 API 端点。
 
 特别指出提供了所有返回值的 Pydantic 封装，便于调用。
 
