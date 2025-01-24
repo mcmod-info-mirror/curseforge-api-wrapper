@@ -1,0 +1,41 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[project]
+name = "curseforge-api-wrapper"
+version = "0.1.0"
+description = "Python wrapper for Curseforge API with Pydantic Model"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28.1",
+    "pydantic>=2.10.5",
+]
+authors = [{ name = "z0z0r4", email = "z0z0r4@outlook.com" }]
+keywords = ["python", "curseforge", "mcinecraft", "api", "wrapper"]
+license = { text = "MIT" }
+classifiers = [
+  "Operating System :: OS Independent",
+  "License :: OSI Approved :: MIT License",
+  "Typing :: Typed",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: Implementation :: CPython",
+]
+
+[project.urls]
+Homepage = "https://github.com/mcmod-info-mirror/curseforge-api-wrapper"
+Documentation = "https://github.com/mcmod-info-mirror/curseforge-api-wrapper"
+Repository = "https://github.com/mcmod-info-mirror/curseforge-api-wrapper"
+Issues = "https://github.com/mcmod-info-mirror/curseforge-api-wrapper/issues"
+
+[tool.pytest.ini_options]
+markers = ["mod", "file", "category", "search", "fingerprint"]
