@@ -59,7 +59,11 @@ class SortOrder(Enum):
 class Client:
     def __init__(self, api_key: str, endpoint: str = "https://api.curseforge.com"):
         self.api_key = api_key
-        self.headers = {"x-api-key": api_key, "Accept": "application/json", "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.54"}
+        self.headers = {
+            "x-api-key": api_key,
+            "Accept": "application/json",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.54",
+        }
         self.endpoint = endpoint
 
     def search_mods(
@@ -92,19 +96,27 @@ class Client:
             "gameVersions": gameVersions,
             "searchFilter": searchFilter,
             "sortField": (
-                (sortField if type(sortField) is int else sortField.value)
+                (
+                    sortField.value
+                    if isinstance(sortField, ModsSearchSortField)
+                    else sortField
+                )
                 if sortField
                 else None
             ),
             "sortOrder": (
-                (sortOrder if type(sortOrder) is str else sortOrder.value)
+                (sortOrder.value if isinstance(sortOrder, SortOrder) else sortOrder)
                 if sortOrder
                 else None
             ),
             "modLoaderType": (
-                modLoaderType
-                if type(modLoaderType) is int
-                else modLoaderType.value if modLoaderType else None
+                (
+                    modLoaderType.value
+                    if isinstance(modLoaderType, ModLoaderType)
+                    else modLoaderType
+                )
+                if modLoaderType
+                else None
             ),
             "modLoaderTypes": modLoaderTypes,
             "gameVersionTypeId": gameVersionTypeId,
@@ -150,9 +162,9 @@ class Client:
             params={
                 "gameVersion": gameVersion,
                 "modLoaderType": (
-                    modLoaderType
-                    if type(modLoaderType) is int
-                    else modLoaderType.value if modLoaderType else None
+                    modLoaderType.value
+                    if isinstance(modLoaderType, ModLoaderType)
+                    else modLoaderType if modLoaderType else None
                 ),
                 "gameVersionTypeId": gameVersionTypeId,
                 "index": index,
@@ -189,7 +201,6 @@ class Client:
         data = {"fingerprints": fingerprints}
         res = request(url, method="POST", headers=self.headers, json=data)
         return FingerprintResult(**res["data"])
-
 
     def get_categories(
         self,
