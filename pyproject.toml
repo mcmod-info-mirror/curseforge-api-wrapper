@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "curseforge-api-wrapper"
-version = "1.0.0"
+version = "1.0.1"
 description = "Python wrapper for Curseforge API with Pydantic Model"
 readme = "README.md"
 requires-python = ">=3.8"
